@@ -31,6 +31,7 @@ weeklyus <- group_by(
     all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
     total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+    total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
     icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T)
   )
@@ -49,6 +50,7 @@ weeklystate <- group_by(
     all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
     total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+    total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
     icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T)
   )
@@ -67,6 +69,7 @@ weeklycounty <- group_by(
     all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
     total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+    total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
     icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T)
   ) 
