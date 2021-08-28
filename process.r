@@ -4,7 +4,13 @@ library(tidycensus)
 full2 <- full
 
 full2$collection_week_formatted <- as.Date(full2$collection_week)
+full2$collection_week_end <- full2$collection_week_formatted + 6
+
 full2[,8:99] <- lapply(full2[,8:99], as.numeric)
+
+full2$total_icu_beds_7_day_sum_available <- full2$total_icu_beds_7_day_sum - full2$icu_beds_used_7_day_sum
+
+
 fips <- fips_codes
 fips$statecountyfips <- paste0(fips$state_code,fips$county_code)
 full2[full2==-999999] <- NA
@@ -33,7 +39,8 @@ weeklyus <- group_by(
     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
     total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
-    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T)
+    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
+    total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
   )
 
 weeklystate <- group_by(
@@ -52,7 +59,8 @@ weeklystate <- group_by(
     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
     total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
-    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T)
+    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
+    total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
   )
 
 weeklycounty <- group_by(
@@ -71,7 +79,8 @@ weeklycounty <- group_by(
     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
     total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
-    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T)
+    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
+    total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
   ) 
 
 weeklycounty <- merge(
