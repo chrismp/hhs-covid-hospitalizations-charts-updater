@@ -1,22 +1,24 @@
 source('download.r')
 library(tidycensus)
 
-full2 <- full
+# full$fips_code <- as.character(full$fips_code)
+full$collection_week_formatted <- as.Date(full$collection_week)
+full$collection_week_end <- full$collection_week_formatted + 6
 
-full2$collection_week_formatted <- as.Date(full2$collection_week)
-full2$collection_week_end <- full2$collection_week_formatted + 6
+full[,12:104] <- lapply(full[,12:104], as.numeric)
 
-full2[,8:99] <- lapply(full2[,8:99], as.numeric)
-
-full2$total_icu_beds_7_day_sum_available <- full2$total_icu_beds_7_day_sum - full2$icu_beds_used_7_day_sum
-
+full$total_icu_beds_7_day_sum_available <- full$total_icu_beds_7_day_sum - full$icu_beds_used_7_day_sum
 
 fips <- fips_codes
-fips$statecountyfips <- paste0(fips$state_code,fips$county_code)
-full2[full2==-999999] <- NA
+fips$statecountyfips <- paste0(
+  as.character(fips$state_code),
+  as.character(fips$county_code)
+)
+
+full[full==-999999] <- NA
 
 fullwithifips <- merge(
-  x = full2,
+  x = full,
   y = fips,
   by.x = 'fips_code',
   by.y = 'statecountyfips',
