@@ -99,6 +99,16 @@ write.csv(
 
 write.csv(
   x = weeklycounty,
+  file = paste0(o,'/us-weekly-covid-hospitalizations-by-county.csv'),
+  na = '',
+  row.names = F
+)
+
+write.csv(
+  x = filter(
+    .data = weeklycounty,
+    state == 'FL'
+  ),
   file = paste0(o,'/fl-weekly-covid-hospitalizations-by-county.csv'),
   na = '',
   row.names = F
