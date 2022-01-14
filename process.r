@@ -91,6 +91,11 @@ weeklycounty <- merge(
   by.y = 'statecountyfips',
 )
 
+weeklycounty$total_confirmed_covid_hospitalized_7day_sum <- weeklycounty$total_adult_patients_hospitalized_confirmed_covid_7_day_sum + weeklycounty$total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum
+weeklycounty$total_adult_patients_hospitalized_confirmed_covid_7_day_avg <- weeklycounty$total_adult_patients_hospitalized_confirmed_covid_7_day_sum / 7
+weeklycounty$total_pediatric_patients_hospitalized_confirmed_covid_7_day_avg <- weeklycounty$total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum / 7
+weeklycounty$total_confirmed_covid_hospitalized_7day_avg <- weeklycounty$total_confirmed_covid_hospitalized_7day_sum / 7
+
 # weeklyfl <- filter(
 #   .data = weeklystate,
 #   state.x == 'FL'
@@ -108,6 +113,21 @@ pbcfacilities <- filter(
 
 o <- 'output'
 dir.create(o)
+
+
+write.csv(
+  x = full,
+  file = paste0(o,'/fl-facilities-data-all-dates.csv'),
+  na = '',
+  row.names = F
+)
+
+write.csv(
+  x = pbcfacilities,
+  file = paste0(o,'/pbc-facilities-data-all-dates.csv'),
+  na = '',
+  row.names = F
+)
 
 # write.csv(
 #   x = weeklyus,
