@@ -25,45 +25,44 @@ fullwithifips <- merge(
   all = T
 )
 
+# weeklyus <- group_by(
+#   .data = fullwithifips,
+#   collection_week_formatted
+# ) %>%
+#   summarise(
+#     total_beds_7_day_sum = sum(total_beds_7_day_sum, na.rm = T),
+#     all_adult_hospital_beds_7_day_sum = sum(all_adult_hospital_beds_7_day_sum, na.rm = T),
+#     all_adult_hospital_inpatient_beds_7_day_sum = sum(all_adult_hospital_inpatient_beds_7_day_sum, na.rm = T),
+#     inpatient_beds_7_day_sum = sum(inpatient_beds_7_day_sum, na.rm = T),
+#     inpatient_beds_used_7_day_sum = sum(inpatient_beds_used_7_day_sum, na.rm = T),
+#     all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
+#     total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+#     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+#     total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
+#     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
+#     icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
+#     total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
+#   )
 
-weeklyus <- group_by(
-  .data = fullwithifips,
-  collection_week_formatted
-) %>%
-  summarise(
-    total_beds_7_day_sum = sum(total_beds_7_day_sum, na.rm = T),
-    all_adult_hospital_beds_7_day_sum = sum(all_adult_hospital_beds_7_day_sum, na.rm = T),
-    all_adult_hospital_inpatient_beds_7_day_sum = sum(all_adult_hospital_inpatient_beds_7_day_sum, na.rm = T),
-    inpatient_beds_7_day_sum = sum(inpatient_beds_7_day_sum, na.rm = T),
-    inpatient_beds_used_7_day_sum = sum(inpatient_beds_used_7_day_sum, na.rm = T),
-    all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
-    total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
-    total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
-    total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
-    total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
-    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
-    total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
-  )
-
-weeklystate <- group_by(
-  .data = fullwithifips,
-  collection_week_formatted,
-  state.x
-) %>%
-  summarise(
-    total_beds_7_day_sum = sum(total_beds_7_day_sum, na.rm = T),
-    all_adult_hospital_beds_7_day_sum = sum(all_adult_hospital_beds_7_day_sum, na.rm = T),
-    all_adult_hospital_inpatient_beds_7_day_sum = sum(all_adult_hospital_inpatient_beds_7_day_sum, na.rm = T),
-    inpatient_beds_7_day_sum = sum(inpatient_beds_7_day_sum, na.rm = T),
-    inpatient_beds_used_7_day_sum = sum(inpatient_beds_used_7_day_sum, na.rm = T),
-    all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
-    total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
-    total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
-    total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
-    total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
-    icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
-    total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
-  )
+# weeklystate <- group_by(
+#   .data = fullwithifips,
+#   collection_week_formatted,
+#   state.x
+# ) %>%
+#   summarise(
+#     total_beds_7_day_sum = sum(total_beds_7_day_sum, na.rm = T),
+#     all_adult_hospital_beds_7_day_sum = sum(all_adult_hospital_beds_7_day_sum, na.rm = T),
+#     all_adult_hospital_inpatient_beds_7_day_sum = sum(all_adult_hospital_inpatient_beds_7_day_sum, na.rm = T),
+#     inpatient_beds_7_day_sum = sum(inpatient_beds_7_day_sum, na.rm = T),
+#     inpatient_beds_used_7_day_sum = sum(inpatient_beds_used_7_day_sum, na.rm = T),
+#     all_adult_hospital_inpatient_bed_occupied_7_day_sum = sum(all_adult_hospital_inpatient_bed_occupied_7_day_sum, na.rm = T),
+#     total_adult_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_adult_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+#     total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_covid_7_day_sum, na.rm = T),
+#     total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum = sum(total_pediatric_patients_hospitalized_confirmed_and_suspected_covid_7_day_sum, na.rm = T),
+#     total_icu_beds_7_day_sum = sum(total_icu_beds_7_day_sum, na.rm = T),
+#     icu_beds_used_7_day_sum = sum(icu_beds_used_7_day_sum, na.rm = T),
+#     total_icu_beds_7_day_sum_available = sum(total_icu_beds_7_day_sum_available, na.rm = T)
+#   )
 
 weeklycounty <- group_by(
   .data = fullwithifips,
@@ -92,10 +91,10 @@ weeklycounty <- merge(
   by.y = 'statecountyfips',
 )
 
-weeklyfl <- filter(
-  .data = weeklystate,
-  state.x == 'FL'
-)
+# weeklyfl <- filter(
+#   .data = weeklystate,
+#   state.x == 'FL'
+# )
 
 weeklypbc <- filter(
   .data = weeklycounty,
@@ -110,33 +109,33 @@ pbcfacilities <- filter(
 o <- 'output'
 dir.create(o)
 
-write.csv(
-  x = weeklyus,
-  file = paste0(o,'/us-weekly-covid-hospitalizations.csv'),
-  na = '',
-  row.names = F
-)
+# write.csv(
+#   x = weeklyus,
+#   file = paste0(o,'/us-weekly-covid-hospitalizations.csv'),
+#   na = '',
+#   row.names = F
+# )
 
 write.csv(
   x = weeklycounty,
-  file = paste0(o,'/us-weekly-covid-hospitalizations-by-county.csv'),
+  file = paste0(o,'/fl-weekly-covid-hospitalizations-by-county.csv'),
   na = '',
   row.names = F
 )
 
-write.csv(
-  x = weeklystate,
-  file = paste0(o,'/us-weekly-covid-hospitalizations-by-state.csv'),
-  na = '',
-  row.names = F
-)
+# write.csv(
+#   x = weeklystate,
+#   file = paste0(o,'/us-weekly-covid-hospitalizations-by-state.csv'),
+#   na = '',
+#   row.names = F
+# )
 
-write.csv(
-  x = weeklyfl,
-  file = paste0(o,'/fl-weekly-covid-hospitalizations.csv'),
-  na = '',
-  row.names = F
-)
+# write.csv(
+#   x = weeklyfl,
+#   file = paste0(o,'/fl-weekly-covid-hospitalizations.csv'),
+#   na = '',
+#   row.names = F
+# )
 
 write.csv(
   x = weeklypbc,

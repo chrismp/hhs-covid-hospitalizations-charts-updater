@@ -1,4 +1,5 @@
 # https://dev.socrata.com/foundry/healthdata.gov/anag-cw7u
+# https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u
 
 library(jsonlite)
 library(dplyr)
@@ -10,7 +11,7 @@ options(scipen=999)
 # secret <- '3lg47jxlnvl29or8xiyd6enkcj350gdb04ufe7p3wpga3tcmkt'
 
 limit <- 50000
-url <- paste0('https://healthdata.gov/resource/anag-cw7u.json?$limit=',limit)
+url <- paste0('https://healthdata.gov/resource/anag-cw7u.json?state=FL&$limit=',limit)
 offset <- 0
 l <- list()
 i <- 1
